@@ -11,6 +11,11 @@ const routers = {
         component (resolve) {
             require(['./views/signup.vue'], resolve);
         }
+    },
+    '/signin': {
+        component (resolve) {
+            require(['./views/signin.vue'], resolve);
+        }
     }
 };
 export default routers;

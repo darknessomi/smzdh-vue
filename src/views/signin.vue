@@ -31,15 +31,15 @@
 </style>
 <template>
     <h1>
-        注册
+        登陆
     </h1>
     <input type="text" v-model="username" placeholder="username">
     <input type="password" v-model="password" placeholder="password">
-    <div><button v-on:click="register">注册</button></div>
+    <div><button v-on:click="register">登陆</button></div>
 </template>
 <script>
     import md5 from 'blueimp-md5';
-
+    
     export default {
         data () {
             return {
@@ -59,17 +59,17 @@
                     username: this.username,
                     password: md5(this.password)
                 };
-                this.$http.post('http://localhost:8008/api/signup', useinfo).then((response) => {
+                this.$http.post('http://localhost:8008/api/signin', useinfo).then((response) => {
                     console.log(response)
                     if (response.status == 200 && response.ok) {
-                        alert("注册成功")
+                        alert("登陆成功")
                     } else {
-                        alert("注册错误")
+                        alert("登陆错误")
                     }
                 }, (response) => {
                     console.log(response)
                     // error callback
-                    alert("注册错误")
+                    alert("登陆错误")
                 });
 
             }
