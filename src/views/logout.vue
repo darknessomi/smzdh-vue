@@ -6,17 +6,6 @@
         font-weight: bold;
         margin-top: 100px;
     }
-    input{
-        width: 20%;
-        height: 30px;
-        line-height: 30px;
-        border: 1px solid #ccc;
-        text-align: center;
-        font-size: 20px;
-        margin-top: 20px;
-        margin-right: 40%;
-        margin-left: 40%;
-    }
     div button{
         width: 20%;
         height: 30px;
@@ -31,11 +20,9 @@
 </style>
 <template>
     <h1>
-        登陆
+        登出
     </h1>
-    <input type="text" v-model="username" placeholder="username">
-    <input type="password" v-model="password" placeholder="password">
-    <div><button v-on:click="signin">登陆</button></div>
+    <div><button v-on:click="logout">登出</button></div>
 </template>
 <script>
     import md5 from 'blueimp-md5';
@@ -54,22 +41,18 @@
 
         },
         methods: {
-            signin: function (event) {
-                let useinfo = {
-                    username: this.username,
-                    password: md5(this.password)
-                };
-                this.$http.post('http://localhost:8008/api/signin', useinfo).then((response) => {
+            logout: function (event) {
+                this.$http.get('http://localhost:8008/api/logout').then((response) => {
                     console.log(response)
                     if (response.status == 200 && response.ok) {
-                        alert("登陆成功")
+                        alert("登出成功")
                     } else {
-                        alert("登陆错误")
+                        alert("登出错误")
                     }
                 }, (response) => {
                     console.log(response)
                     // error callback
-                    alert("登陆错误")
+                    alert("登出错误")
                 });
 
             }

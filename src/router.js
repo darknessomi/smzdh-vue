@@ -16,6 +16,11 @@ const routers = {
         component (resolve) {
             require(['./views/signin.vue'], resolve);
         }
+    },
+    '/logout': {
+        component (resolve) {
+            require(['./views/logout.vue'], resolve);
+        }
     }
 };
 export default routers;
