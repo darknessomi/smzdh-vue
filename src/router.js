@@ -6,6 +6,11 @@ const routers = {
         component (resolve) {
             require(['./views/index.vue'], resolve);
         }
+    },
+    '/signup': {
+        component (resolve) {
+            require(['./views/signup.vue'], resolve);
+        }
     }
 };
 export default routers;
