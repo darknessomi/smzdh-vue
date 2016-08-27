@@ -3,11 +3,19 @@
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 import App from 'components/app.vue';
 import Routers from './router';
 import Env from './config/env';
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
+
+// Send request body as application/x-www-form-urlencoded content type
+// Vue.http.options.emulateJSON = true;
+
+// Send PUT, PATCH and DELETE requests with a HTTP POST and set the X-HTTP-Method-Override header
+Vue.http.options.emulateHTTP = true;
 
 // 开启debug模式
 Vue.config.debug = true;

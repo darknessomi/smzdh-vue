@@ -106,4 +106,23 @@ npm run build
 ```
 
 ####访问
-在浏览器地址栏输入http://127.0.0.1:8080
+在浏览器地址栏输入http://127.0.0.1:8008
+
+#####跨域配置
+
+```
+    server {
+        listen       8008;
+        server_name  localhost;
+
+        location ^~/ {
+            rewrite ^/(.*)$ /$1 break;
+            proxy_pass http://localhost:8080/;
+        }
+        
+        location ^~/api/ {
+            rewrite ^/api/(.*)$ /$1 break;
+            proxy_pass http://localhost:3000/;
+        }
+    }
+```   
