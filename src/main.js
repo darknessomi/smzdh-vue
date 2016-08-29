@@ -37,6 +37,6 @@ router.afterEach(() => {
 });
 
 router.redirect({
-    '*': "/index"
+    '*': "/"
 });
 router.start(App, '#app');
