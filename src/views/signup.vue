@@ -59,7 +59,7 @@
                     username: this.username,
                     password: md5(this.password)
                 };
-                this.$http.post('http://localhost:8008/api/signup', useinfo).then((response) => {
+                this.$http.post('/api/signup', useinfo).then((response) => {
                     console.log(response)
                     if (response.status == 200 && response.ok) {
                         alert("注册成功")
