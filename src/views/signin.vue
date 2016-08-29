@@ -39,7 +39,7 @@
 </template>
 <script>
     import md5 from 'blueimp-md5';
-    
+
     export default {
         data () {
             return {
@@ -59,7 +59,7 @@
                     username: this.username,
                     password: md5(this.password)
                 };
-                this.$http.post('http://localhost:8008/api/signin', useinfo).then((response) => {
+                this.$http.post('/api/signin', useinfo).then((response) => {
                     console.log(response)
                     if (response.status == 200 && response.ok) {
                         alert("登陆成功")

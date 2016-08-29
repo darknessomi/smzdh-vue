@@ -42,7 +42,7 @@
         },
         methods: {
             logout: function (event) {
-                this.$http.get('http://localhost:8008/api/logout').then((response) => {
+                this.$http.get('/api/logout').then((response) => {
                     console.log(response)
                     if (response.status == 200 && response.ok) {
                         alert("登出成功")
