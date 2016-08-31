@@ -35,16 +35,26 @@
     </h1>
     <input type="text" v-model="username" placeholder="username">
     <input type="password" v-model="password" placeholder="password">
+    <alert :show.sync="showTop" placement="top" duration="3000" type="danger" width="400px" dismissable>
+      <span class="icon-info-circled alert-icon-float-left"></span>
+      <strong>登陆错误</strong>
+      <p>请检查用户名密码是否正确</p>
+    </alert>
     <div><button v-on:click="signin">登陆</button></div>
 </template>
 <script>
     import md5 from 'blueimp-md5';
+    import { alert } from 'vue-strap'
 
     export default {
+        components: {
+            alert,
+        },
         data () {
             return {
                 username: '',
-                password: ''
+                password: '',
+                showTop: false
             }
         },
         ready () {
@@ -61,15 +71,16 @@
                 };
                 this.$http.post('/api/signin', useinfo).then((response) => {
                     console.log(response)
+                    console.log(this.show)
                     if (response.status == 200 && response.ok) {
                         alert("登陆成功")
                     } else {
-                        alert("登陆错误")
+                        this.showTop = true
                     }
                 }, (response) => {
                     console.log(response)
                     // error callback
-                    alert("登陆错误")
+                    this.showTop = true
                 });
 
             }
