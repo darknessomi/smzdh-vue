@@ -11,26 +11,24 @@
         font-size: 20px;
         margin-top: 50px;
     }
-    .button-container {
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
     img{
         width: 150px;
     }
 </style>
 <template>
-    <h2>
-        <img src="../images/logo.png">
-    </h2>
-    <h1>
-        什么值得黑
-    </h1>
-    <div class="col-xs-12 button-container">
-        <button v-link="'/signin'" class="btn btn-success col-xs-offset-3 col-xs-2">登录</button>
-        <button v-link="'/signup'" class="btn btn-info col-xs-offset-2 col-xs-2">注册</button>
+    <div class="container">
+        <h2>
+            <img src="../images/logo.png">
+        </h2>
+        <h1>
+            什么值得黑
+        </h1>
+        <div class="row">
+            <a v-link="'/signin'" class="col s2 offset-s3 waves-effect waves-light btn">登录</a>
+            <a v-link="'/signup'" class="col s2 offset-s2 waves-effect waves-light btn">注册</a>
+        </div>
+        <h2 v-time></h2>
     </div>
-    <h2 v-time></h2>
 </template>
 <script>
     import NumberSeparator from '../filters/number-separator';

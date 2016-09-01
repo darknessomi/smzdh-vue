@@ -23,7 +23,11 @@ module.exports = {
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
             { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
             { test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192'},
-            { test: /\.(html|tpl)$/, loader: 'html-loader' }
+            { test: /\.(html|tpl)$/, loader: 'html-loader' },
+            { test: /\.woff(\d*)\??(\d*)$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+            { test: /\.ttf\??(\d*)$/, loader: "file-loader" },
+            { test: /\.eot\??(\d*)$/, loader: "file-loader" },
+            { test: /\.svg\??(\d*)$/, loader: "file-loader" }
         ]
     },
     // 转es5
