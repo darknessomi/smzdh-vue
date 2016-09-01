@@ -11,6 +11,10 @@
         font-size: 20px;
         margin-top: 50px;
     }
+    .button-container {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
     img{
         width: 150px;
     }
@@ -22,6 +26,10 @@
     <h1>
         什么值得黑
     </h1>
+    <div class="col-xs-12 button-container">
+        <button v-link="'/signin'" class="btn btn-success col-xs-offset-3 col-xs-2">登录</button>
+        <button v-link="'/signup'" class="btn btn-info col-xs-offset-2 col-xs-2">注册</button>
+    </div>
     <h2 v-time></h2>
 </template>
 <script>

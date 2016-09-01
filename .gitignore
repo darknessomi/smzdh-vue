@@ -26,6 +26,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 dist
+index_prod.html
 
 # Dependency directories
 node_modules
