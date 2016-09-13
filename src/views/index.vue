@@ -23,7 +23,11 @@
         <h1>
             什么值得黑
         </h1>
-        <div class="row">
+        <div class="row" v-if="login">
+            <h1>{{ username }}</h1>
+            <a v-on:click="logout" class="col s2 offset-s5 waves-effect waves-light btn">登出</a>
+        </div>
+        <div class="row" v-else>
             <a v-link="'/signin'" class="col s2 offset-s3 waves-effect waves-light btn">登录</a>
             <a v-link="'/signup'" class="col s2 offset-s2 waves-effect waves-light btn">注册</a>
         </div>
@@ -43,17 +47,44 @@
         },
         data () {
             return {
-
+                login: false,
+                username: ""
             }
         },
         ready () {
-
+            this.$http.get('/api/user/self').then((response) => {
+                console.log(response)
+                if (response.status == 200 && response.ok) {
+                    this.login = true
+                    console.log(JSON.parse(response.body))
+                    this.username = JSON.parse(response.body).username
+                }
+            }, (response) => {
+                console.log(response)
+                // error callback
+                // alert(JSON.parse(response.body).error)
+            });
         },
         beforeDestroy () {
 
         },
         methods: {
-            
+            logout: function (event) {
+                this.$http.get('/api/logout').then((response) => {
+                    console.log(response)
+                    if (response.status == 200 && response.ok) {
+                        alert("登出成功")
+                        this.login = false
+                    } else {
+                        alert("登出错误")
+                    }
+                }, (response) => {
+                    console.log(response)
+                    // error callback
+                    alert("登出错误")
+                });
+
+            }
         }
     }
 </script>

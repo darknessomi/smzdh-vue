@@ -8,9 +8,7 @@
     }
     input{
         width: 30%;
-        height: 30px;
         line-height: 30px;
-        border: 1px solid #ccc;
         text-align: center;
         font-size: 20px;
         margin-top: 20px;
@@ -19,7 +17,6 @@
     }
     div button{
         width: 30%;
-        height: 30px;
         line-height: 20px;
         text-align: center;
         font-size: 20px;
@@ -72,7 +69,8 @@
                     this.$http.post('/api/signup', useinfo).then((response) => {
                         console.log(response)
                         if (response.status == 200 && response.ok) {
-                            alert("注册成功")
+                            alert("注册成功，验证邮件已发送至 " + this.email + " 请注意查收")
+                            this.$router.go("/")
                         }
                     }, (response) => {
                         console.log(response)
