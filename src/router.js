@@ -17,9 +17,9 @@ const routers = {
             require(['./views/signin.vue'], resolve);
         }
     },
-    '/logout': {
+    '/verify_email/:token': {
         component (resolve) {
-            require(['./views/logout.vue'], resolve);
+            require(['./views/verify_email.vue'], resolve);
         }
     }
 };

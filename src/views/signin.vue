@@ -8,7 +8,6 @@
     }
     input{
         width: 30%;
-        height: 30px;
         line-height: 30px;
         border: 1px solid #ccc;
         text-align: center;
@@ -19,7 +18,6 @@
     }
     div button{
         width: 30%;
-        height: 30px;
         line-height: 20px;
         text-align: center;
         font-size: 20px;
@@ -70,6 +68,7 @@
                         console.log(response)
                         if (response.status == 200 && response.ok) {
                             alert("登陆成功")
+                            this.$router.go("/")
                         } else {
                             alert('请检查用户名密码是否正确')
                         }
