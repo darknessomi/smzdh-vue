@@ -32,7 +32,7 @@
             登陆
         </h1>
         <div class="row">
-            <input class="col s6 offset-s3" type="text" v-model="username" placeholder="username">
+            <input class="col s6 offset-s3" type="text" v-model="email" placeholder="email">
             <input class="col s6 offset-s3" type="password" v-model="password" placeholder="password">
             <div><button class="waves-effect waves-light btn" v-on:click="signin">登陆</button></div>
         </div>
@@ -47,7 +47,7 @@
         },
         data () {
             return {
-                username: '',
+                email: '',
                 password: ''
             }
         },
@@ -59,9 +59,9 @@
         },
         methods: {
             signin: function (event) {
-                if (this.username.length > 0 && this.password.length > 0) {
+                if (this.email.length > 0 && this.password.length > 0) {
                     let useinfo = {
-                        username: this.username,
+                        email: this.email,
                         password: md5(this.password)
                     };
                     this.$http.post('/api/signin', useinfo).then((response) => {

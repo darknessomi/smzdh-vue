@@ -21,6 +21,11 @@ const routers = {
         component (resolve) {
             require(['./views/verify_email.vue'], resolve);
         }
+    },
+    '/post': {
+        component (resolve) {
+            require(['./views/posts.vue'],resolve);
+        }
     }
 };
 export default routers;
