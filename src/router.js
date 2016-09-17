@@ -26,6 +26,11 @@ const routers = {
         component (resolve) {
             require(['./views/posts.vue'],resolve);
         }
+    },
+    'post/:post_id': {
+        component (resolve) {
+            require(['./views/post.vue'],resolve);
+        }
     }
 };
 export default routers;
