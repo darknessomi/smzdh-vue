@@ -1,9 +1,9 @@
 
 <template>
     <div class="container">
-        <h1>hello world</h1>
         <div class="row" v-for="post in posts">
-            {{ post.title }}
+            <a href="post/{{ post.id }}">{{ post.title }}</a>
+            {{ post.author }}
             {{ post.created}}
         </div>
     </div>
