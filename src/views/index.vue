@@ -53,14 +53,15 @@
         },
         ready () {
             this.$http.get('/api/user/self').then((response) => {
-                console.log(response)
+                console.log(response);
                 if (response.status == 200 && response.ok) {
-                    this.login = true
-                    console.log(JSON.parse(response.body))
-                    this.username = JSON.parse(response.body).username
+                    this.login = true;
+                    console.log(JSON.parse(response.body));
+                    this.username = JSON.parse(response.body).username;
+                    this.$route.go('/posts');
                 }
             }, (response) => {
-                console.log(response)
+                console.log(response);
                 // error callback
                 // alert(JSON.parse(response.body).error)
             });
@@ -71,17 +72,17 @@
         methods: {
             logout: function (event) {
                 this.$http.get('/api/logout').then((response) => {
-                    console.log(response)
+                    console.log(response);
                     if (response.status == 200 && response.ok) {
-                        alert("登出成功")
-                        this.login = false
+                        alert("登出成功");
+                        this.login = false;
                     } else {
-                        alert("登出错误")
+                        alert("登出错误");
                     }
                 }, (response) => {
-                    console.log(response)
+                    console.log(response);
                     // error callback
-                    alert("登出错误")
+                    alert("登出错误");
                 });
 
             }
