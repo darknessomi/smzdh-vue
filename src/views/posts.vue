@@ -2,8 +2,8 @@
 <template>
     <div class="container">
         <div class="row" v-for="post in posts">
-            <a href="post/{{ post.id }}">{{ post.title }}</a>
-            {{ post.author }}
+            <a v-link="{ name: 'post', params: { post_id: {{ post.id }} }}">{{ post.title }}</a>
+            {{ post.author.username }}
             {{ post.created}}
         </div>
     </div>
