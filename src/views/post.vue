@@ -3,12 +3,17 @@
         <div>
             {{ post.title }}
             {{ post.content }}
-            {{ post.author }}
+            {{ post.author.username }}
             {{ post.created}}
         </div>
         <div v-for="comment in comments">
             {{ comment.content }}
+            {{ comment.author.username }}
             {{ comment.created }}
+        </div>
+        <div class="row">
+            <input v-model="comment">
+            <button v-on:click="createComment">评论</button>
         </div>
     </div>
 
@@ -17,7 +22,9 @@
     export default {
         data () {
             return {
-                post:null
+                post:null,
+                comments:null,
+                comment:""
             }
         },
         ready () {
@@ -25,7 +32,7 @@
         beforeDestroy () {},
         created () {
             this.fetchPost();
-            this.fetchComment();
+            this.fetchComments();
         },
         methods: {
             fetchPost () {
@@ -39,15 +46,32 @@
                     alert("test");
                 });
             },
-            fetchComment () {
+            fetchComments () {
                 this.$http.get('/api/comment?post_id=' + this.$route.params.post_id).then((response) => {
                     if (response.status == 200 && response.ok) {
-                        this.comment = JSON.parse(response.body).comments;
+                        this.comments = JSON.parse(response.body).comments;
                     } else {
                         alert("test");
                     }                    
                 },(response) => {
-                    alert("test")
+                    alert("test");
+                });
+            },
+            createComment () {
+                if (this.comment === "") {
+                    alert("输入为空.");
+                    return;
+                }
+                this.$http.post('/api/comment',{content:this.comment,post_id:Number(this.$route.params.post_id)})
+                .then((response) => {
+                    if (response.status == 200 && response.ok) {
+                        this.comment = "";
+                        this.fetchComments();
+                    } else {
+                        alert("test");
+                    }
+                },(response) => {
+                    alert("test");
                 });
             }
         }
