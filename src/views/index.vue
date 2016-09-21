@@ -58,7 +58,7 @@
                     this.login = true;
                     console.log(JSON.parse(response.body));
                     this.username = JSON.parse(response.body).username;
-                    this.$route.go('/posts');
+                    this.$route.router.go('/posts');
                 }
             }, (response) => {
                 console.log(response);
