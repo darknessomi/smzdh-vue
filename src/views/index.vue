@@ -28,7 +28,7 @@
         <div class="row">
             <a v-link="'/posts'" class="col s2 offset-s5 waves-effect waves-light btn">主题列表</a>
         </div>
-        <div v-cloak>
+        <div v-if="loaded">
             <div class="row" v-if="login">
                 <h1>{{ username }}</h1>
                 <a v-on:click="logout" class="col s2 offset-s5 waves-effect waves-light btn">登出</a>
@@ -55,7 +55,8 @@
         data () {
             return {
                 login: false,
-                username: ""
+                username: "",
+                loaded:false,
             }
         },
         created () {
@@ -65,6 +66,7 @@
                     this.login = true;
                     console.log(JSON.parse(response.body));
                     this.username = JSON.parse(response.body).username;
+                    this.loaded = true;
                 }
             }, (response) => {
                 console.log(response);
