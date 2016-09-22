@@ -28,13 +28,15 @@
         <div class="row">
             <a v-link="'/posts'" class="col s2 offset-s5 waves-effect waves-light btn">主题列表</a>
         </div>
-        <div class="row" v-if="login">
-            <h1>{{ username }}</h1>
-            <a v-on:click="logout" class="col s2 offset-s5 waves-effect waves-light btn">登出</a>
-        </div>
-        <div class="row" v-else>
-            <a v-link="'/signin'" class="col s2 offset-s3 waves-effect waves-light btn">登录</a>
-            <a v-link="'/signup'" class="col s2 offset-s2 waves-effect waves-light btn">注册</a>
+        <div v-cloak>
+            <div class="row" v-if="login">
+                <h1>{{ username }}</h1>
+                <a v-on:click="logout" class="col s2 offset-s5 waves-effect waves-light btn">登出</a>
+            </div>
+            <div class="row" v-else>
+                <a v-link="'/signin'" class="col s2 offset-s3 waves-effect waves-light btn">登录</a>
+                <a v-link="'/signup'" class="col s2 offset-s2 waves-effect waves-light btn">注册</a>
+            </div>
         </div>
         <h2 v-time></h2>
     </div>
