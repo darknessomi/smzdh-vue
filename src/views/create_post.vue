@@ -86,7 +86,7 @@
                     console.log(post);
                     this.$http.post('/api/post',post).then((response) => {
                         if (response.status === 200 && response.ok) {
-                            this.$route.router.go('/post/'+response.body.post_id);
+                            this.$route.router.go('/post/'+JSON.parse(response.body).post_id);
                         } else {
                             alert(response.body.error);
                         }
