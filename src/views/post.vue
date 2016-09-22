@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <a v-link="'/posts'">主题列表</a>
         <div>
             <h2>{{ post.title }}</h2>
             <p>{{ post.author.username }}</p>
