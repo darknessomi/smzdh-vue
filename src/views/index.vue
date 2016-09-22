@@ -54,8 +54,8 @@
                 username: ""
             }
         },
-        ready () {
-            this.$http.get('/api/user/self').then((response) => {
+        created () {
+             this.$http.get('/api/user/self').then((response) => {
                 console.log(response);
                 if (response.status == 200 && response.ok) {
                     this.login = true;
@@ -67,6 +67,8 @@
                 // error callback
                 // alert(JSON.parse(response.body).error)
             });
+        },
+        ready () {
         },
         beforeDestroy () {
 
