@@ -1,17 +1,19 @@
 <style scoped>
-    h1{
+    h1 {
         color: #000;
         text-align: center;
         font-size: 25px;
         font-weight: bold;
         margin-top: 100px;
     }
-    h2{
+    
+    h2 {
         text-align: center;
         font-size: 20px;
         margin-top: 50px;
     }
-    img{
+    
+    img {
         width: 150px;
     }
 </style>
@@ -55,7 +57,7 @@
             }
         },
         created () {
-             this.$http.get('/api/user/self').then((response) => {
+            this.$http.get('/api/user/self').then((response) => {
                 console.log(response);
                 if (response.status == 200 && response.ok) {
                     this.login = true;
