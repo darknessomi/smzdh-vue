@@ -66,13 +66,13 @@
                     this.login = true;
                     console.log(JSON.parse(response.body));
                     this.username = JSON.parse(response.body).username;
-                    this.loaded = true;
                 }
             }, (response) => {
                 console.log(response);
                 // error callback
                 // alert(JSON.parse(response.body).error)
             });
+            this.loaded = true;
         },
         ready () {
         },
