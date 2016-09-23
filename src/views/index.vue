@@ -70,6 +70,7 @@
                 }
             }, (response) => {
                 console.log(response);
+                this.loaded = true;
                 // error callback
                 // alert(JSON.parse(response.body).error)
             });
