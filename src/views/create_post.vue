@@ -41,9 +41,11 @@
                 </div>
             </div>
             <div class="input-field col s12">
-            <select v-model="category_id">
-                <option v-for="category in categorys" v-bind:value="category.id">{{ category.name }}</option>
-            </select>
+            <input-field class="s6" label="name">
+            <v-select v-model="category_id">
+                <v-option v-for="category in categorys" v-bind:value="category.id">{{ category.name }}</v-option>
+            </v-select>
+            </input-field>
             </div>
             <div><button class="waves-effect waves-light btn" v-on:click="createPost">创建</button></div>
         </div>
