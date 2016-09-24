@@ -36,16 +36,12 @@
         <div class="row">
             <input class="col s6 offset-s3" type="text" v-model="title" placeholder="标题">
             <div class="row">
-                <div class="input-field col s12">
-                    <textarea class="col s6 offset-s3 materialize-textarea" type="text" v-model="content"></textarea>
-                </div>
+                <input-field class="col s12" label="Some text" textarea></input-field>
             </div>
             <div class="input-field col s12">
-            <input-field class="s6" label="name">
             <v-select v-model="category_id">
                 <v-option v-for="category in categorys" v-bind:value="category.id">{{ category.name }}</v-option>
             </v-select>
-            </input-field>
             </div>
             <div><button class="waves-effect waves-light btn" v-on:click="createPost">创建</button></div>
         </div>
