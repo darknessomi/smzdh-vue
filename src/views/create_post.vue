@@ -35,7 +35,7 @@
       <input-field class="col s6 offset-s3" type="text" v-model="title" placeholder="标题">
       </input-field>
     </div>
-    <input-field class="col s12" label="Some text" textarea v-model="content">
+    <input-field class="col s12" label="主题内容" textarea v-model="content">
     </input-field>
     <div class="input-field col s12">
       <v-select v-model="category_id">
@@ -77,13 +77,17 @@
         },
         methods: {
             createPost: function(event) {
+                console.log({
+                        title:this.title,
+                        content:this.content,
+                        category_id:this.category_id
+                    };
                 if (this.title.length>5) {
                     let post = {
                         title:this.title,
                         content:this.content,
                         category_id:this.category_id
                     };
-                    console.log(post);
                     this.$http.post('/api/post',post).then((response) => {
                         if (response.status === 200 && response.ok) {
                             this.$route.router.go('/post/'+JSON.parse(response.body).post_id);
