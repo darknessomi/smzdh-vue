@@ -32,13 +32,13 @@
   <div class="container">
     <h1>创建新主题</h1>
     <div class="row">
-      <input-field class="col s6 offset-s3" type="text" :value="title" placeholder="标题">
+      <input-field class="col s6 offset-s3" type="text" v-bind:value.sync="title" placeholder="标题">
       </input-field>
     </div>
-    <input-field class="col s12" label="主题内容" textarea v-model="content">
+    <input-field class="col s12" label="主题内容" v-bind:value.sync="content" textarea>
     </input-field>
     <div class="input-field col s12">
-      <v-select v-bind="category_id">
+      <v-select v-bind:value.sync="category_id">
         <v-option v-for="category in categorys" :value="category.id">{{ category.name }}</v-option>
       </v-select>
     </div>
