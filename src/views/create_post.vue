@@ -32,14 +32,14 @@
   <div class="container">
     <h1>创建新主题</h1>
     <div class="row">
-      <input-field class="col s6 offset-s3" type="text" v-model="title" placeholder="标题">
+      <input-field class="col s6 offset-s3" type="text" :value="title" placeholder="标题">
       </input-field>
     </div>
     <input-field class="col s12" label="主题内容" textarea v-model="content">
     </input-field>
     <div class="input-field col s12">
-      <v-select v-model="category_id">
-        <v-option v-for="category in categorys" v-bind:value="category.id">{{ category.name }}</v-option>
+      <v-select v-bind="category_id">
+        <v-option v-for="category in categorys" :value="category.id">{{ category.name }}</v-option>
       </v-select>
     </div>
     <div class="row">
@@ -81,7 +81,7 @@
                         title:this.title,
                         content:this.content,
                         category_id:this.category_id
-                    };
+                    });
                 if (this.title.length>5) {
                     let post = {
                         title:this.title,
