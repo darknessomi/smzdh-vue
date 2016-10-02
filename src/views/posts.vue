@@ -1,6 +1,7 @@
 
 <template>
     <div class="container">
+        <a v-link="'/post/new'">创建新主题</a>
         <div class="row" v-for="post in posts">
             <a v-link="'/post/' + this.post.id">{{ post.title }}</a>
             {{ post.author.username }}

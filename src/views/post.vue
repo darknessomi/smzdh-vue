@@ -1,15 +1,21 @@
 <template>
     <div class="container">
+        <a v-link="'/posts'">主题列表</a>
         <div>
-            {{ post.title }}
-            {{ post.content }}
-            {{ post.author.username }}
-            {{ post.created}}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.author.username }}</p>
+            <span>{{ post.created}}</span>
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="row">
+            <h3>评论</h3>
         </div>
         <div v-for="comment in comments">
-            {{ comment.content }}
-            {{ comment.author.username }}
-            {{ comment.created }}
+            <div class="row">
+                <p>{{ comment.author.username }}</p>
+           <p> {{ comment.content }}</p>
+           <p>{{ comment.created }}</p>
+            </div>
         </div>
         <div class="row">
             <input v-model="comment">

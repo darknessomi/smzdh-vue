@@ -7,7 +7,7 @@ import VueResource from 'vue-resource';
 import App from 'components/app.vue';
 import Routers from './router';
 import Env from './config/env';
-import "./styles/materialize.config.scss"
+import "./styles/materialize.config.scss";
 
 Vue.use(VueRouter);
 Vue.use(VueResource);

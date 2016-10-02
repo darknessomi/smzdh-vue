@@ -27,6 +27,11 @@ const routers = {
             require(['./views/posts.vue'],resolve);
         }
     },
+    '/post/new': {
+        component (resolve) {
+            require(['./views/create_post.vue'],resolve);
+        }
+    },
     '/post/:post_id': {
         component (resolve) {
             require(['./views/post.vue'],resolve);
